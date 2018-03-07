@@ -1,0 +1,284 @@
+@font-face {
+  font-family: 'TheSerif';
+  src: url('fnt/TheSerif.eot');
+  font-weight: normal;
+  font-style: normal;
+}     
+
+
+body {
+    /**background-image:-webkit-linear-gradient(top, #d2dfec,#E4E2D4);background-image:linear-gradient(to bottom, #d2dfec,#E4E2D4);**/
+    font: 16px TheSerif;font-weight: 300; color:#303030; margin:0% 5% 0% 5%; padding: .0em 0.0em 12em 0.0em;cursor: default;
+}
+
+#guesswhat{
+    border-top: 1px solid #006FB3;
+    border-bottom: 1px solid #006FB3;
+    padding: 10px 0;
+    width: 100%;
+}
+ 
+#guesswhat .title{
+  font : 24px Caecilia lt bold; color:#0297C9;
+  padding: 5px 10px 10px 0px;
+  display: inline-block;
+  
+}
+
+#guesswhat .subtitle{
+  font : 16px TheSerif; color:#7A7A7A;
+  padding: 5px 10px 10px 0px;
+  display: inline-block;
+
+}
+
+#guesswhat .guide{
+
+    border-radius: 7px;
+    padding: 10px 20px 10px 20px; 
+    font : 16px Arial ; color:#ffffff;
+    background-color:#E73741;
+    opacity:1;
+
+}
+
+
+#guesswhat .validation {
+    text-align: center;
+    padding: 1rem;
+}
+
+#guesswhat .validation {
+    background-color: #3773ac;
+    color: #fff;
+    font-family: TheSerif;
+    border-radius: 8px;
+    font-size: 18px;
+    border: 1px solid #fff;
+    cursor: pointer;
+    padding: 8px;
+    text-align: center;
+    width: 200px;
+    margin: 0px auto;
+    opacity: .3;
+    margin-top: 10px;
+}
+
+
+#guesswhat .validation-done {
+    background-color: #0F8FD9;
+    color: #fff;
+    font-family: TheSerif;
+    border-radius: 8px;
+    font-size: 18px;
+    border: 1px solid #fff;
+    cursor: pointer;
+    padding: 8px;
+    text-align: center;
+    width: 200px;
+    margin: 0px auto;
+    opacity: 1;
+    margin-top: 10px;
+}
+
+#guesswhat .explanation {
+    display:none;
+}
+#guesswhat .explanation-done {
+font-family: TheSerif;font-size: 18px;font-weight: 300;color:  #ffffff;
+text-align: center;
+background-color: #0F8FD9;
+border-radius: 7px;
+padding: 10px 20px 10px 20px; 
+
+}
+
+.drawChart{
+  background: none;
+  padding: 10px 0px 10px 0px;
+}
+
+.line{
+    fill: none;
+    stroke: #8EA4B1;
+    stroke-width: 3px;
+    pointer-events: none;
+}
+
+
+.your-line {
+    fill: none;
+    stroke: #E73741;
+    stroke-width: 3px;
+    stroke-opacity: 1;
+    stroke-dasharray: 5 5;
+}
+
+
+.axis line {
+    fill: none;
+    stroke: white;
+    shape-rendering: crispEdges;
+}
+.tick line{
+    fill: none;
+    stroke: none;
+}
+.axis path {
+    fill: none;
+    stroke: none;
+    shape-rendering: crispEdges;
+}
+.x.axis text {
+    font : 14px TheSerif; fill:#575757;
+}
+
+.y.axis  text {
+    font : 14px TheSerif; fill:#575757;
+}
+
+.grid line{
+    fill: none;
+    stroke: white;
+    shape-rendering: crispEdges;
+}
+.grid path{
+    fill: #DDE9EF;
+    stroke: none;
+    shape-rendering: crispEdges;
+}
+
+
+.real {
+    fill: #0F8FD9;
+    font-weight: bold;
+    font-family: TheSerif, Arial;
+    font-size: 16px;
+}
+
+.dataLabel{
+    fill:  #E73741;
+    font-weight: bold;
+    font-family: TheSerif, Arial;
+    font-size: 16px;
+}
+
+.annotation {
+    fill:#E73741;
+    opacity:0.5;
+
+}
+
+.textindic{
+    font : 26px TheSerif; fill:#7A7A7A;
+}
+
+
+.area{
+  fill: #8EA4B1;
+  opacity: 0.25;
+  stroke:none;
+}
+
+path{
+                fill:none;
+                stroke:#000;
+                stroke-width:0.3;
+            }
+            
+#guesswhat .donottouch {
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#guesswhat .try1,
+#guesswhat .try2,
+#guesswhat .try3,
+#guesswhat .try4 {
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media all and (max-width: 700px) {
+    .y.axis  text {
+        display: none;
+    }
+
+    .dataLabel {
+        font-size: 14px;
+    }
+    .real{
+        font-size: 14px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .textindic{
+        font : 16px TheSerif; fill:#7A7A7A;
+    }
+
+    .dataLabel {
+        font-size: 12px;
+    }
+    .real {
+        font-size: 12px;
+    }
+}
+
+@media all and (max-width: 500px) {
+
+    .dataLabel {
+        font-size: 10px;
+    }
+    .real{
+        font-size: 10px;
+    }
+}
+
+
+
+
+
+
+/**
+
+
+svg{
+	overflow: visible;
+}
+
+body{
+  font-family: monospace;
+  margin: 0px;
+  overflow: hidden;
+}
+
+.axis{
+  opacity: .5;
+}
+
+.line{
+  fill: none;
+  stroke: black;
+  stroke-width: 3;
+}
+
+.area{
+  fill: #eee;
+}
+
+.your-line{
+  stroke: #f0f;
+  stroke-width: 3;
+  stroke-dasharray: 5 5;
+}**/

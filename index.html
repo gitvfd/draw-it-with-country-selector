@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- source: https://bl.ocks.org/1wheel/07d9040c3422dac16bd5be741433ff1e-->
+
+<script src="d3v4.js"></script>
+<meta charset='utf-8'>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="style2.css">
+
+<body>
+	<br>
+
+<div id="guesswhat">
+		<div class="Explanation"></div>
+	    <div class="title"> Is the gender wage gap diminishing?</div>
+	    <div class="subtitle">Difference in % between median earnings of men and women relative to median earnings of men</div>
+		<div id="country_sel">
+				<div class="dropdown_text">Pick a country and draw the line </div>
+				<select id="country_dropdown" onchange="drawTheLine(this.value)";>
+					 <option value="AUS">Australia</option>
+					 <option value="AUT" >Austria</option>
+					 <option value="BEL" >Belgium</option>
+					 <option value="CAN" >Canada</option>
+					 <option value="CHL" >Chile</option>
+					 <option value="CZE" >Czech Republic</option>
+					 <option value="DNK" >Denmark</option>
+					 <option value="EST" >Estonia</option>
+					 <option value="FIN" >Finland</option>
+					 <option value="FRA" >France</option>
+					 <option value="DEU" >Germany</option>
+					 <option value="GRC" >Greece</option>
+					 <option value="HUN" >Hungary</option>
+					 <option value="ISL" >Iceland</option>
+					 <option value="IRL" >Ireland</option>
+					 <option value="ISR" >Israel</option>
+					 <option value="ITA" >Italy</option>
+					 <option value="JPN" >Japan</option>
+					 <option value="KOR" >Korea</option>
+					 <option value="LVA" >Latvia</optionion>
+					 <option value="LUX" >Luxembourg</option>
+					 <option value="MEX" >Mexico</option>
+					 <option value="NLD" >Netherlands</option>
+					 <option value="NZL" >New Zealand</option>
+					 <option value="NOR">Norway</option>
+					 <option value="OECD" selected="selected">OECD</option>
+					 <option value="POL" >Poland</option>
+					 <option value="PRT" >Portugal</option>
+					 <option value="SVK" >Slovak Republic</option>
+					 <option value="SVN" >Slovenia</option>
+					 <option value="ESP" >Spain</option>
+					 <option value="SWE" >Sweden</option>
+					 <option value="CHE" >Switzerland</option>
+					 <option value="TUR" >Turkey</option>
+					 <option value="GBR" >United Kingdom</option>
+					 <option value="USA" >United States</option>
+				</select>
+		</div>
+	    <div id="drawChart" class="drawChart"></div>
+
+	    <div class="validate">
+	        <div id="validation" class="validation">Explanation</div>
+	        <div id="explanation" class="explanation">The gender gap wage is slowly decreasing in most countries but still too important.</div>
+	   	</div>
+</div>
+
+
+</body>
+
+<script src='script.js'></script>
+<script  type="text/javascript">
+	var e = document.getElementById("country_dropdown");
+	var startISO = e.options[e.selectedIndex].value;
+	var dataTot=[];
+	var counter=0;
+	d3.csv("data.csv",function(error, dataToLoad) {
+		dataToLoad.forEach(function(d){
+				dataTot.push(d)
+				counter++; 
+         		if (counter === dataToLoad.length) {
+             		drawTheLine(startISO);
+         		}
+			})
+
+	})
+</script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51983915-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
