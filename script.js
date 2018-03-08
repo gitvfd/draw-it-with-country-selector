@@ -164,7 +164,9 @@ function drawTheLine (ISO){
         
         c.svg.selectAll(".annotation").remove();
         document.getElementById('validation').style.display = 'none'
-        document.getElementById('explanation').classList.replace( 'explanation', 'explanation-done' )
+        //document.getElementById('explanation').classList.replace( 'explanation', 'explanation-done' )
+        document.getElementById('explanation').classList.remove( 'explanation')
+        document.getElementById('explanation').classList.add( 'explanation-done')
         /**document.getElementById('explanation').classList.remove('explanation');
         document.getElementById('explanation').classList.toggle('explanation-done');**/
       }
