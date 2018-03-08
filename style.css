@@ -28,7 +28,7 @@ body {
     float:left;
     text-align: center;
     font-family: Caecilia, Georgia, serif;;
-    color:#7A7A7A;
+    color:#E73741;
     text-shadow: 0 0px 0 #000000;
     font-size: 18px;
     height:32px;
@@ -209,6 +209,13 @@ padding: 10px 20px 10px 20px;
     font-size: 16px;
 }
 
+.trueDataLabel{
+    fill:  #8EA4B1;
+    font-weight: normal;
+    font-family: TheSerif, Arial;
+    font-size: 14px;
+}
+
 .annotation {
     fill:#E73741;
     opacity:0.5;
@@ -305,7 +312,7 @@ path{
         font : 16px TheSerif; fill:#7A7A7A;
     }
 
-    .dataLabel {
+    .dataLabel,.trueDataLabel {
         font-size: 12px;
     }
     .real {
@@ -318,8 +325,8 @@ path{
         display: none;
     }
 
-    .dataLabel {
-        font-size: 10px;
+    .dataLabel,.trueDataLabel {
+        font-size: 12px;
     }
     .real{
         font-size: 10px;
