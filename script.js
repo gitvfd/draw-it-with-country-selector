@@ -1,6 +1,8 @@
 function drawTheLine (ISO){
         document.getElementById('validation').style.display = 'initial'
-        document.getElementById('explanation').classList.replace( 'explanation-done', 'explanation' )
+        //document.getElementById('explanation').classList.replace( 'explanation-done', 'explanation' )
+        document.getElementById('explanation').classList.add( 'explanation')
+        document.getElementById('explanation').classList.remove( 'explanation-done')
        // document.getElementById('explanation').classList.remove();
 
   var data =dataTot.filter(function(v) { return v.LOCATION == ISO; })
@@ -25,8 +27,6 @@ function drawTheLine (ISO){
   c.x.range([c.width/15, c.width]).domain([d3.min(data, function(d) { return d.TIME; }), d3.max(data, function(d) { return d.TIME; })]);
   c.y.domain([0.75*d3.min(data, function(d) { return parseFloat(d.value); }), 1.25*d3.max(data, function(d) { return parseFloat(d.value); })]);
 
-console.log(d3.min(data, function(d) { return parseFloat(d.value); }))
-console.log(d3.max(data, function(d) { return parseFloat(d.value); }))
   c.xAxis.ticks(5).tickFormat(ƒ())
   c.yAxis.ticks(5).tickFormat(d => d )
 
