@@ -59,7 +59,7 @@ body {
 }
 .drawChart{
   background: none;
-  padding: 10px 0px 10px 0px;
+  padding: 5px 0px 5px 0px;
 }
 
 .line{
@@ -174,9 +174,6 @@ path{
 }
 
 @media all and (max-width: 700px) {
-    .y.axis  text {
-        display: none;
-    }
 
     .dataLabel {
         font-size: 14px;
@@ -200,6 +197,9 @@ path{
 }
 
 @media all and (max-width: 500px) {
+    .y.axis  text {
+        display: none;
+    }
 
     .dataLabel {
         font-size: 10px;
