@@ -80,7 +80,6 @@ body {
 }
 
 #guesswhat .guide{
-
     border-radius: 7px;
     padding: 10px 20px 10px 20px; 
     font : 16px Arial ; color:#ffffff;
@@ -131,13 +130,13 @@ body {
 #guesswhat .explanation {
     display:none;
 }
+
 #guesswhat .explanation-done {
 font-family: TheSerif;font-size: 18px;font-weight: 300;color:  #ffffff;
 text-align: center;
 background-color: #0F8FD9;
 border-radius: 7px;
 padding: 10px 20px 10px 20px; 
-
 }
 
 .drawChart{
@@ -259,31 +258,40 @@ path{
 @media all and (max-width: 700px) {
 
 
-.dropdown_text{
-    font-size: 16px;
-}
+    .drawChart{
+      padding: 1px 0px 0px 0px;
+    }
 
-#country_dropdown{
-    font-size: 16px;
-}
- 
-#country_sel{
-  line-height: 200%;
-  margin-bottom:5px;
-}
+    .dropdown_text{
+        font-size: 14px;
+    }
+
+    #country_dropdown{
+        font-size: 14px;
+    }
+     
+    #country_sel{
+      line-height: 200%;
+      margin-bottom:2px;
+    }
     #guesswhat .title{
-      font : 18px Caecilia lt bold;
+        font : 18px Caecilia lt bold;
+        padding: 1px 10px 1px 0px;
       
     }
 
     #guesswhat .subtitle{
         font : 14px TheSerif; color:#7A7A7A;
+        padding: 1px 10px 1px 0px;
     }
 
     #guesswhat .explanation-done {
         font-family: TheSerif;font-size: 14px;font-weight: 300;color:  #ffffff;
     }
 
+    .y.axis  text {
+    font : 12px TheSerif; fill:#575757;
+    }
     .dataLabel {
         font-size: 14px;
     }
