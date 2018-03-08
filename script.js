@@ -18,8 +18,8 @@ function drawTheLine (ISO){
 
   var heightChart=400;
   if(sel.node().offsetWidth<700)
-    heightChart=250;
-  
+    heightChart=200;
+
   var c = d3.conventions({
     parentSel: sel, 
     totalWidth: sel.node().offsetWidth, 
