@@ -15,10 +15,15 @@ function drawTheLine (ISO){
   var breakDate= 2005;
 
   var sel = d3.select('#drawChart').html('')
+
+  var heightChart=400;
+  if(sel.node().offsetWidth<700)
+    heightChart=250;
+  
   var c = d3.conventions({
     parentSel: sel, 
     totalWidth: sel.node().offsetWidth, 
-    height: 400, 
+    height: heightChart, 
     margin: {left: 0, right: 80, top: 30, bottom: 30}
   })
 
