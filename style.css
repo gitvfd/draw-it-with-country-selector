@@ -19,7 +19,6 @@ body {
     color: #7A7A7A;
     text-shadow: 0 0px 0 #000000;
     letter-spacing: 0;
-
     margin-left:5px;
     /**text-shadow: 0 1px 0 #000000;**/
 }
@@ -31,7 +30,7 @@ body {
     color:#E73741;
     text-shadow: 0 0px 0 #000000;
     font-size: 18px;
-    height:32px;
+    /**height:32px;**/
     /**max-width:60%;**/
     padding:0px;
     margin-left:10px;
@@ -46,7 +45,7 @@ body {
 
 #country_sel{
   display: inline-block;
-  line-height: 200%;
+  line-height:150%;
   border-radius: 2px;
   border: 1px solid #d4d4d4;
  /*width:50%;
@@ -55,7 +54,7 @@ body {
 
   background-color: #eeeeee;
   background-image:linear-gradient(to bottom, #fbfbfb, #e1e1e1);
-  margin-bottom:10px;
+  margin-bottom:2px;
 }
 
 #guesswhat{
@@ -287,8 +286,8 @@ path{
     }
      
     #country_sel{
-      line-height: 200%;
-      margin-bottom:2px;
+      line-height:100%;
+      margin-bottom:0px;
     }
     #guesswhat .title{
         font : 18px Caecilia lt bold;
@@ -298,7 +297,7 @@ path{
 
     #guesswhat .subtitle{
         font : 14px TheSerif; color:#7A7A7A;
-        padding: 1px 10px 1px 0px;
+        padding: 1px 10px 5px 0px;
     }
 
     #guesswhat .source{
