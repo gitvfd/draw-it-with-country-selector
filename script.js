@@ -68,8 +68,38 @@ function drawTheLine (ISO){
   annotation.append("text")
       .attr("class","textindic")
       .attr("x",c.x(breakDate)+0.02*c.width)
-      .attr("y",0.45*c.height)
-      .text("Draw line ?");
+      .attr("y",function(){
+        var testPos="";
+        data.forEach(function(v){
+          if(v.TIME==breakDate){
+            testPos= c.y(v.value)
+          }
+        }) 
+
+        if(testPos=="")
+          return 0.6*c.height;
+        else
+          return testPos;
+      })
+      .text("Draw your estimate");  
+
+  annotation.append("text")
+      .attr("class","subtextindic")
+      .attr("x",c.x(breakDate)+0.02*c.width)
+      .attr("y",function(){
+        var testPos="";
+        data.forEach(function(v){
+          if(v.TIME==breakDate){
+            testPos= c.y(v.value)+20
+          }
+        }) 
+
+        if(testPos=="")
+          return 0.6*c.height+20;
+        else
+          return testPos;
+      })
+      .text("Click and drag");
 
   var clipRect = c.svg
     .append('clipPath#clip')
@@ -82,13 +112,14 @@ function drawTheLine (ISO){
   correctSel.append('path.line').at({d: line(data)})
 
  /** ADDED VALUE TO END OF LINE **/
-  correctSel.append("text")
+  var trueFinalLabel= c.svg.append("text")
                     //.attr("id","visualGuide")
                     .text(d3.round(data[data.length-1].value,1))
-                    .attr("x", 0+c.x(data[data.length-1].TIME) )
-                    .attr("y", c.y(data[data.length-1].value)+25)
+                    .attr("x", 30+c.x(data[data.length-1].TIME) )
+                    .attr("y", c.y(data[data.length-1].value))
                     .attr("text-anchor", "end")
-                    .attr("class", "trueDataLabel donottouch");
+                    .attr("class", "trueDataLabel donottouch")
+                    .attr("opacity",0);
 
   yourDataSel = c.svg.append('path.your-line')
 
@@ -116,7 +147,8 @@ function drawTheLine (ISO){
           .attr("x",c.x(TIME))
           .attr("width", c.x(d3.max(data, function(d) { return d.TIME; })) -c.x(TIME));
       
-      c.svg.selectAll(".textindic").remove();
+      c.svg.selectAll(".textindic").remove();      
+      c.svg.selectAll(".subtextindic").remove();
       
       yourData.forEach(function(d){
         if (Math.abs(d.TIME - TIME) < .5){
@@ -133,7 +165,7 @@ function drawTheLine (ISO){
   if (c.svg.selectAll("circle").empty() == true) {
                 var circle=c.svg.append("circle")
                     .attr("class","donottouch")
-                    .attr("fill", "#E73741")
+                    .attr("fill", "#8EA4B1")
                     .attr("cx", c.x(d3.max(data, function(d) { return d.TIME; })))
                     .attr("cy", c.y(clamp(0, c.y.domain()[1], c.y.invert(pos[1]))))
                     .attr("r", 5)
@@ -172,7 +204,8 @@ function drawTheLine (ISO){
 
         
         clipRect.transition().duration(1000).attr('width', c.x(d3.max(data, function(d) { return d.TIME; })))
-        
+        trueFinalLabel.transition().duration(1000).attr("opacity",1);
+
         c.svg.selectAll(".annotation").remove();
         document.getElementById('validation').style.display = 'none'
         //document.getElementById('explanation').classList.replace( 'explanation', 'explanation-done' )
