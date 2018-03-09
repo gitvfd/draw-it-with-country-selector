@@ -79,6 +79,12 @@ body {
 
 }
 
+#guesswhat .source{
+  font : 12px TheSerif; color:#7A7A7A;
+  padding: 10px 0px 0px 0px;
+  display: inline-block;
+
+}
 #guesswhat .guide{
     border-radius: 7px;
     padding: 10px 20px 10px 20px; 
@@ -141,12 +147,12 @@ padding: 10px 20px 10px 20px;
 
 .drawChart{
   background: none;
-  padding: 5px 0px 5px 0px;
+  padding: 0px 0px 5px 0px;
 }
 
 .line{
     fill: none;
-    stroke: #8EA4B1;
+    stroke: #E73741;
     stroke-width: 3px;
     pointer-events: none;
 }
@@ -154,7 +160,7 @@ padding: 10px 20px 10px 20px;
 
 .your-line {
     fill: none;
-    stroke: #E73741;
+    stroke: #8EA4B1;
     stroke-width: 3px;
     stroke-opacity: 1;
     stroke-dasharray: 5 5;
@@ -203,14 +209,14 @@ padding: 10px 20px 10px 20px;
 }
 
 .dataLabel{
-    fill:  #E73741;
+    fill:  #8EA4B1;
     font-weight: bold;
     font-family: TheSerif, Arial;
     font-size: 16px;
 }
 
 .trueDataLabel{
-    fill:  #8EA4B1;
+    fill:  #E73741;
     font-weight: normal;
     font-family: TheSerif, Arial;
     font-size: 14px;
@@ -223,9 +229,12 @@ padding: 10px 20px 10px 20px;
 }
 
 .textindic{
-    font : 26px TheSerif; fill:#7A7A7A;
+    font : 26px TheSerif; fill:#ffffff;
 }
 
+.subtextindic{
+    font : 16px TheSerif; fill:#ffffff;
+}
 
 .area{
   fill: #8EA4B1;
@@ -266,7 +275,7 @@ path{
 
 
     .drawChart{
-      padding: 1px 0px 0px 0px;
+      padding: 0px 0px 0px 0px;
     }
 
     .dropdown_text{
@@ -292,6 +301,11 @@ path{
         padding: 1px 10px 1px 0px;
     }
 
+    #guesswhat .source{
+      font : 10px TheSerif; color:#7A7A7A;
+      padding: 7px 0px 0px 0px;
+
+    }
     #guesswhat .explanation-done {
         font-family: TheSerif;font-size: 14px;font-weight: 300;color:  #ffffff;
     }
@@ -309,9 +323,11 @@ path{
 
 @media all and (max-width: 600px) {
     .textindic{
-        font : 16px TheSerif; fill:#7A7A7A;
+        font : 16px TheSerif; fill:#ffffff;
     }
-
+    .subtextindic{
+        font : 11px TheSerif; fill:#ffffff;
+    }
     .dataLabel,.trueDataLabel {
         font-size: 12px;
     }
