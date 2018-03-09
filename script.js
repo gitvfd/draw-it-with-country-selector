@@ -86,7 +86,7 @@ function drawTheLine (ISO){
                     //.attr("id","visualGuide")
                     .text(d3.round(data[data.length-1].value,1))
                     .attr("x", 0+c.x(data[data.length-1].TIME) )
-                    .attr("y", c.y(data[data.length-1].value)-10)
+                    .attr("y", c.y(data[data.length-1].value)+25)
                     .attr("text-anchor", "end")
                     .attr("class", "trueDataLabel donottouch");
 
