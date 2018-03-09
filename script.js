@@ -46,7 +46,6 @@ function drawTheLine (ISO){
                 .ticks(5)
             );
 
-
   c.svg.append("g")
         .attr("transform", "translate(" + c.width/14+ ","+ "-"+ 10+")")
           .attr("class", "y axis donottouch")
@@ -54,8 +53,6 @@ function drawTheLine (ISO){
                 .tickFormat(d3.format(".2s"))
                 .ticks(5)
           );
-
-                
 
   var annotation = c.svg.append("g")
         
@@ -65,7 +62,7 @@ function drawTheLine (ISO){
       .attr("y",0.0)
       .attr("rx",10)
       .attr("ry",10)
-      .attr("width", (c.x(d3.max(data, function(d) { return d.TIME; })) - c.x(breakDate)))
+      .attr("width", (c.x(d3.max(data, function(d) { return d.TIME; })) - c.x(breakDate) ))
       .attr("height", c.height);
 
   annotation.append("text")
@@ -83,6 +80,15 @@ function drawTheLine (ISO){
 
   correctSel.append('path.area').at({d: area(data)})
   correctSel.append('path.line').at({d: line(data)})
+
+ /** ADDED VALUE TO END OF LINE **/
+  correctSel.append("text")
+                    //.attr("id","visualGuide")
+                    .text(d3.round(data[data.length-1].value,1))
+                    .attr("x", 0+c.x(data[data.length-1].TIME) )
+                    .attr("y", c.y(data[data.length-1].value)-10)
+                    .attr("text-anchor", "end")
+                    .attr("class", "trueDataLabel donottouch");
 
   yourDataSel = c.svg.append('path.your-line')
 
