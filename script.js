@@ -12,7 +12,7 @@ function drawTheLine (ISO){
 
   var parseTime = d3.timeParse("%Y")
 
-  var breakDate= 2005;
+  var breakDate= 2008;
 
   var sel = d3.select('#drawChart').html('')
 
