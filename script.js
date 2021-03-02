@@ -190,7 +190,7 @@ function drawTheLine (ISO){
                     .attr("x",  30 + c.x(d3.max(data, function(d) { return d.TIME; })))
                     .attr("y", c.y(clamp(0, c.y.domain()[1], c.y.invert(pos[1]))))
                     .text(function() {
-                        return c.y.invert(c.y(clamp(0, c.y.domain()[1], c.y.invert(pos[1])))).toFixed(0).replace(".", ".")  + "" // add unit in between the quote
+                        return c.y.invert(c.y(clamp(0, c.y.domain()[1], c.y.invert(pos[1])))).toFixed(0).replace(".", ".")  + "(in " + d3.max(data, function(d) { return d.TIME; })+")" // add unit in between the quote
                     });
             }
 
