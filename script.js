@@ -113,16 +113,24 @@ function drawTheLine (ISO){
 
  /** ADDED VALUE TO END OF LINE **/
         
-  var value2display = d3.round(data[data.length-1].value,1)  +"(in " + d3.max(data, function(d) { return d.TIME; })+")"
+  var year2display =   "(in " + d3.max(data, function(d) { return d.TIME; })+")"
   var trueFinalLabel= c.svg.append("text")
                     //.attr("id","visualGuide")
-                    .text(value2display)
-                    .attr("x", 30+c.x(data[data.length-1].TIME) )
+                    .text(d3.round(data[data.length-1].value,1))
+                    .attr("x", 5+c.x(data[data.length-1].TIME) )
                     .attr("y", c.y(data[data.length-1].value))
                     .attr("text-anchor", "start")
                     .attr("class", "trueDataLabel donottouch")
                     .attr("opacity",0);
-
+ var trueFinalYear= c.svg.append("text")
+                    //.attr("id","visualGuide")
+                    .text(year2display)
+                    .attr("x", 5+c.x(data[data.length-1].TIME) )
+                    .attr("y", 10+c.y(data[data.length-1].value))
+                    .attr("text-anchor", "start")
+                    .attr("class", "trueDataLabel donottouch")
+                    .attr("opacity",0);
+        
   yourDataSel = c.svg.append('path.your-line')
 
 
