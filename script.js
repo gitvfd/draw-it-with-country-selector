@@ -32,7 +32,7 @@ function drawTheLine (ISO){
   c.x.range([c.width/15, c.width]).domain([d3.min(data, function(d) { return d.TIME; }), d3.max(data, function(d) { return d.TIME; })]);
   c.y.domain([0.75*d3.min(data, function(d) { return parseFloat(d.value); }), 1.25*d3.max(data, function(d) { return parseFloat(d.value); })]);
 
-  c.xAxis.ticks(5).tickFormat(ƒ())
+  c.xAxis.ticks(6).tickFormat(ƒ())
   c.yAxis.ticks(5).tickFormat(d => d )
 
   var area = d3.area().x(ƒ('TIME', c.x)).y0(ƒ('value', c.y)).y1(c.height)
@@ -112,15 +112,25 @@ function drawTheLine (ISO){
   correctSel.append('path.line').at({d: line(data)})
 
  /** ADDED VALUE TO END OF LINE **/
+        
+  var year2display =   "(in " + d3.max(data, function(d) { return d.TIME; })+")"
   var trueFinalLabel= c.svg.append("text")
                     //.attr("id","visualGuide")
                     .text(d3.round(data[data.length-1].value,1))
-                    .attr("x", 30+c.x(data[data.length-1].TIME) )
+                    .attr("x", 5+c.x(data[data.length-1].TIME) )
                     .attr("y", c.y(data[data.length-1].value))
-                    .attr("text-anchor", "end")
+                    .attr("text-anchor", "start")
                     .attr("class", "trueDataLabel donottouch")
                     .attr("opacity",0);
-
+ var trueFinalYear= c.svg.append("text")
+                    //.attr("id","visualGuide")
+                    .text(year2display)
+                    .attr("x", 5+c.x(data[data.length-1].TIME) )
+                    .attr("y", 12.5+c.y(data[data.length-1].value))
+                    .attr("text-anchor", "start")
+                    .attr("class", "trueDataLabel donottouch")
+                    .attr("opacity",0);
+        
   yourDataSel = c.svg.append('path.your-line')
 
 
@@ -176,10 +186,12 @@ function drawTheLine (ISO){
                     .text(function() {
                         return c.y.invert(c.y(clamp(0, c.y.domain()[1], c.y.invert(pos[1])))).toFixed(0).replace(".", ".")  + "" // add unit in between the quote
                     })
-                    .attr("x", 30 + c.x(d3.max(data, function(d) { return d.TIME; })) )
+                    .attr("x", 5 + c.x(d3.max(data, function(d) { return d.TIME; })) )
                     .attr("y", c.y(clamp(0, c.y.domain()[1], c.y.invert(pos[1]))))
-                    .attr("text-anchor", "middle")
+                    .attr("text-anchor", "start")
                     .attr("class", "dataLabel donottouch");
+                                    
+
             } else {
                 c.svg.select("circle")
                     .attr("cx", c.x(d3.max(data, function(d) { return d.TIME; })))
@@ -205,6 +217,7 @@ function drawTheLine (ISO){
         
         clipRect.transition().duration(1000).attr('width', c.x(d3.max(data, function(d) { return d.TIME; })))
         trueFinalLabel.transition().duration(1000).attr("opacity",1);
+        trueFinalYear.transition().duration(1000).attr("opacity",1);
 
         c.svg.selectAll(".annotation").remove();
         document.getElementById('validation').style.display = 'none'
