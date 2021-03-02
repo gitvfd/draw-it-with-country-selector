@@ -112,9 +112,11 @@ function drawTheLine (ISO){
   correctSel.append('path.line').at({d: line(data)})
 
  /** ADDED VALUE TO END OF LINE **/
+        
+  var value2display = d3.round(data[data.length-1].value,1)  +"(in " + d3.max(data, function(d) { return d.TIME; })+")"
   var trueFinalLabel= c.svg.append("text")
                     //.attr("id","visualGuide")
-                    .text(d3.round(data[data.length-1].value,1))
+                    .text(value2display)
                     .attr("x", 30+c.x(data[data.length-1].TIME) )
                     .attr("y", c.y(data[data.length-1].value))
                     .attr("text-anchor", "end")
@@ -174,7 +176,7 @@ function drawTheLine (ISO){
                 c.svg.append("text")
                     .attr("id","visualGuide")
                     .text(function() {
-                        return c.y.invert(c.y(clamp(0, c.y.domain()[1], c.y.invert(pos[1])))).toFixed(0).replace(".", ".")  + "(in " + d3.max(data, function(d) { return d.TIME; })+")" // add unit in between the quote
+                        return c.y.invert(c.y(clamp(0, c.y.domain()[1], c.y.invert(pos[1])))).toFixed(0).replace(".", ".")  + "" // add unit in between the quote
                     })
                     .attr("x", 30 + c.x(d3.max(data, function(d) { return d.TIME; })) )
                     .attr("y", c.y(clamp(0, c.y.domain()[1], c.y.invert(pos[1]))))
@@ -190,7 +192,7 @@ function drawTheLine (ISO){
                     .attr("x",  30 + c.x(d3.max(data, function(d) { return d.TIME; })))
                     .attr("y", c.y(clamp(0, c.y.domain()[1], c.y.invert(pos[1]))))
                     .text(function() {
-                        return c.y.invert(c.y(clamp(0, c.y.domain()[1], c.y.invert(pos[1])))).toFixed(0).replace(".", ".")  + "(in " + d3.max(data, function(d) { return d.TIME; })+")" // add unit in between the quote
+                        return c.y.invert(c.y(clamp(0, c.y.domain()[1], c.y.invert(pos[1])))).toFixed(0).replace(".", ".")  + "" // add unit in between the quote
                     });
             }
 
