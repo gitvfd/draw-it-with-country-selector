@@ -186,10 +186,21 @@ function drawTheLine (ISO){
                     .text(function() {
                         return c.y.invert(c.y(clamp(0, c.y.domain()[1], c.y.invert(pos[1])))).toFixed(0).replace(".", ".")  + "" // add unit in between the quote
                     })
-                    .attr("x", 30 + c.x(d3.max(data, function(d) { return d.TIME; })) )
+                    .attr("x", 5 + c.x(d3.max(data, function(d) { return d.TIME; })) )
                     .attr("y", c.y(clamp(0, c.y.domain()[1], c.y.invert(pos[1]))))
-                    .attr("text-anchor", "middle")
+                    .attr("text-anchor", "start")
                     .attr("class", "dataLabel donottouch");
+                                    
+                c.svg.append("text")
+                    .attr("id","visualGuide")
+                    .text(function() {
+                        return "(in " + d3.max(data, function(d) { return d.TIME; })+")"
+                    })
+                    .attr("x", 5 + c.x(d3.max(data, function(d) { return d.TIME; })) )
+                    .attr("y", 10+ c.y(clamp(0, c.y.domain()[1], c.y.invert(pos[1]))))
+                    .attr("text-anchor", "start")
+                    .attr("class", "dataLabel donottouch");
+
             } else {
                 c.svg.select("circle")
                     .attr("cx", c.x(d3.max(data, function(d) { return d.TIME; })))
@@ -215,7 +226,7 @@ function drawTheLine (ISO){
         
         clipRect.transition().duration(1000).attr('width', c.x(d3.max(data, function(d) { return d.TIME; })))
         trueFinalLabel.transition().duration(1000).attr("opacity",1);
-        trueFinalYear.transition().duration(1000).attr("opacity",1);
+        //trueFinalYear.transition().duration(1000).attr("opacity",1);
 
         c.svg.selectAll(".annotation").remove();
         document.getElementById('validation').style.display = 'none'
