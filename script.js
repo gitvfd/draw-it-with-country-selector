@@ -215,6 +215,7 @@ function drawTheLine (ISO){
         
         clipRect.transition().duration(1000).attr('width', c.x(d3.max(data, function(d) { return d.TIME; })))
         trueFinalLabel.transition().duration(1000).attr("opacity",1);
+        trueFinalYear.transition().duration(1000).attr("opacity",1);
 
         c.svg.selectAll(".annotation").remove();
         document.getElementById('validation').style.display = 'none'
