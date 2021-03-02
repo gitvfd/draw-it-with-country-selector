@@ -119,7 +119,7 @@ function drawTheLine (ISO){
                     .text(value2display)
                     .attr("x", 30+c.x(data[data.length-1].TIME) )
                     .attr("y", c.y(data[data.length-1].value))
-                    .attr("text-anchor", "end")
+                    .attr("text-anchor", "start")
                     .attr("class", "trueDataLabel donottouch")
                     .attr("opacity",0);
 
